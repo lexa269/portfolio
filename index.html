@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <title>Portfolio</title>
+  <style>
+  	body{
+  		font-family: poppins;
+  	}
+    .sidebar {
+      animation: rainbowGradient 2s infinite linear alternate;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 250px;
+      overflow-x: hidden;
+      padding-top: 20px;
+    }
+
+    .nav-link {
+      padding: 10px;
+      text-decoration: none;
+      font-size: 2em;
+      color: white;
+      display: block;
+    }
+    .nav-link:hover {
+      background-color: white;
+      color: black;
+    }
+    .content {
+      margin-left: 250px;
+      padding: 20px;
+    }
+    @keyframes rainbowGradient {
+      0% {
+        background: linear-gradient(to bottom, violet, indigo, blue, green, yellow, orange, red);
+      }
+      100% {
+        background: linear-gradient(to bottom, red, orange, yellow, green, blue, indigo, violet);
+      }
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <div class="sidebar">
+    <router-link to="/" class="nav-link" exact>Home</router-link>
+    <router-link to="/info" class="nav-link">Info</router-link>
+    <router-link to="/pic" class="nav-link">Pic Shots</router-link>
+    <router-link to="/contact" class="nav-link">Contact</router-link>
+  </div>
+  <div class="content">
+    <router-view></router-view>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<script src="https://unpkg.com/vue-router@3"></script>
+
+<script>
+  const Home = { 
+    template: `
+    <div class="container-fluid justify-content-center mt-5 p-5">
+      <div class="row">
+        <div class="col-8 h4">
+          <p>I am Allan Dave Angco, a transgender individual from Cordova. I am proud to be a member of the LGBTQ+ community, embracing my identity with confidence and resilience. As a transgender person, I've faced challenges and discrimination, but I refuse to let them define me. I am enough, just as I am. My journey of self-discovery and acceptance has empowered me to live authentically and advocate for equality and inclusivity. By embracing my truth and standing tall in my identity, I strive to inspire others to do the same. Every step I take towards self-love and acceptance is a victory not only for myself but for the entire LGBTQ+ community. Together, we continue to break barriers, challenge stereotypes, and create a world where everyone can thrive, regardless of their gender identity or sexual orientation.</p>
+          <p>Moreover, through my experiences and activism, I aim to foster understanding and compassion within society. I believe in the power of education and dialogue to dismantle prejudices and promote acceptance. By sharing my story and engaging in open conversations, I seek to promote empathy and respect for diverse identities. It is my hope that by embracing diversity and celebrating individuality, we can build a more inclusive and equitable world for all. Together, we can create spaces where everyone feels valued, respected, and free to be their authentic selves.</p>
+        </div>
+        <div class="col-4">
+          <img src="https://scontent-mnl1-2.xx.fbcdn.net/v/t1.15752-9/432697651_1341488556523297_5443301099784439338_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeGNaAP9fO0HfYqY2kQ95ZhbcV-pypgWs5lxX6nKmBazmctDwSJS1mnWYSZjWlAwyU7OlB6Lx_2GURdYUd5K_9Mn&_nc_ohc=jfobBK6mkcgAX-JsDb0&_nc_ht=scontent-mnl1-2.xx&oh=03_AdQAQlREk-hUjAZMSHMQlS_iLSzVBzPsbgRZ3iD3cY5NjA&oe=66336169" class="card-img-top" style="width: 100%;">
+        </div>
+      </div>
+    </div>
+    `
+  };
+
+  const Info = { 
+    template: `
+      <div class="container mt-5">
+          <h2 class="text-center">Personal Information</h2><br><br>
+        <div class="row">
+          <div class="col-md-6">
+            <p class="text-center p-2">Morning Edition</p>
+              <ul class="list-group p-2">
+                <li class="list-group-item"><strong>Name:</strong> Allan Dave M. Angco</li>
+                <li class="list-group-item"><strong>Address:</strong> San Miguel, Cordova, Cebu</li>
+                <li class="list-group-item"><strong>Birthday:</strong> August 26, 2001</li>
+                <li class="list-group-item"><strong>Age:</strong> 22</li>
+                <li class="list-group-item"><strong>Gender:</strong> Male</li>
+                <li class="list-group-item"><strong>Occupation:</strong> Student</li>
+              </ul>
+          </div>
+          <div class="col-md-6">
+            <p class="text-center p-2">Evening Edition</p>
+              <ul class="list-group p-2">
+                <li class="list-group-item"><strong>Name:</strong> Lexa Angco</li>
+                <li class="list-group-item"><strong>Address:</strong> San Miguel, Cordova, Cebu</li>
+                <li class="list-group-item"><strong>Birthday:</strong> July 12, 2001</li>
+                <li class="list-group-item"><strong>Age:</strong> 22</li>
+                <li class="list-group-item"><strong>Gender:</strong> Transgender</li>
+                <li class="list-group-item"><strong>Occupation:</strong> Stripper</li>
+              </ul>
+          </div>
+        </div>
+      </div>
+    ` 
+  };
+
+  const Pic = { 
+    template: `
+      <div class="container p-5">
+        <h3 class="p-2">Selfie Shot</h3>
+        <div class="row g-3">
+          <div class="col-3">
+            <img src="https://scontent.fmnl9-4.fna.fbcdn.net/v/t1.15752-9/434259533_452211860571814_2827055556485939139_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeGyvzJOrJisb06codnr8S6soEp-wDMjRJegSn7AMyNEl01N7W2j95TMOmOhbTOCBWQVJvLIEJpXSbUnlbhRbYoN&_nc_ohc=sqwKIu2zvLQAX93prIF&_nc_ht=scontent.fmnl9-4.fna&oh=03_AdTGdtrOwvMyuvXQ9AnrzXtvyNmQueRotKO3ohvybmzDPA&oe=66337E16" class="card-img-top" style="width: 100%; align-items: center;">
+          </div>
+          <div class="col-3">
+            <img src="https://scontent.fceb2-1.fna.fbcdn.net/v/t1.15752-9/432579167_1135410844367113_1234439149430867641_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeH43Gbxxir2eW_7Uuq_PdG5D_LFsVxQsg8P8sWxXFCyDwpOTyHiKbqR014fz40NsqJWHF2eyEZMN0F6YbzFUf3M&_nc_ohc=syKDxRfz1VUAX9PbnA0&_nc_ht=scontent.fceb2-1.fna&oh=03_AdQp64c0cdzEFIJeu7Pf910dO16sAhybWGfNCdMXI2AAQg&oe=663390ED" class="card-img-top" style="width: 100%; align-items: center;">
+          </div>
+          <div class="col-3">
+            <img src="https://scontent.fceb2-2.fna.fbcdn.net/v/t1.15752-9/434266203_2048281762241148_6134787561375039571_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEj_YgTDWi26rw9M9vjsEMmrPmkGdjElQms-aQZ2MSVCdsc18r-3eIllnShsfEF7yzT6sKqcyC3Lz9UoyQf2fPN&_nc_ohc=UsaEFZGHPjUAX81Fi3O&_nc_ht=scontent.fceb2-2.fna&oh=03_AdR8Gk9nl2D51CgwfMW9QJ_8ofKN_tqpOYf1xHTP9z767Q&oe=6633A289" class="card-img-top" style="width: 100%; height: 100%; align-items: center;">
+          </div>
+          <div class="col-3">
+            <img src="https://scontent.fceb2-1.fna.fbcdn.net/v/t1.15752-9/434454796_1253365142287877_1710137585000452836_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeFQSYDhF300Y6N_vn5Xy686DO3oA-dBXqUM7egD50FepeQNBERa50fo3ZFmUSnZ88UYWcEbalfp3bVmr7xayJH8&_nc_ohc=9kQBrjXgyXAAX-p43Ll&_nc_ht=scontent.fceb2-1.fna&oh=03_AdS2F1bIL0GAlkqpQrB4HyKX86Mf7OD5EivqNiTJcBtzxA&oe=66339370" class="card-img-top" style="width: 100%;height: 100%; align-items: center;">
+          </div>
+          <div class="col-3">
+            <img src="https://scontent.fmnl9-4.fna.fbcdn.net/v/t1.15752-9/434315427_3934698383425846_6923110538036646259_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeFKv6rfHFfVK4UyKSkBjchMUGRTHj-kVO1QZFMeP6RU7WS0KOFOOXkBUh-xFt-6VDNKCD9NLPBoT2GdqXAuAOO1&_nc_ohc=u4Bdzo__uW8AX-NW05f&_nc_ht=scontent.fmnl9-4.fna&oh=03_AdSGxIOmZ1GXp7cXUkEwQLtyrxcCe-EZyaGkuJqPHsapYQ&oe=6633AF3A" class="card-img-top" style="width: 100%; align-items: center;">
+          </div>
+          <div class="col-3">
+            <img src="https://scontent.fceb2-2.fna.fbcdn.net/v/t1.15752-9/434729175_2834216413411567_7010041560718122089_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHSynONPD511Scxw-Y-ekofnMFfvtTcQOKcwV--1NxA4mWQ4vOahNBnIe5U_-O83SPri6IMZAmcxJg6t5eAXyNp&_nc_ohc=_f5z9WfLcj8AX9AiiUW&_nc_ht=scontent.fceb2-2.fna&oh=03_AdSxiUC5YC2VyGdc0J4PeDcFnAY8CP3wulLViDkF5SZz8A&oe=66337B76" class="card-img-top" style="width: 100%; align-items: center;">
+          </div>
+          <div class="col-3">
+            <img src="https://scontent.fceb2-1.fna.fbcdn.net/v/t1.15752-9/434533988_1821549678348135_5172219222983400324_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEZnxcfi8yUHGM5iC_JKi6HQqpUMElREclCqlQwSVERyeu5Gp1_bJEOqIErjq7qumKhjkhuooTn1iFcuNFvLp0u&_nc_ohc=XJGg6zoSOcgAX94zFbc&_nc_ht=scontent.fceb2-1.fna&oh=03_AdR74fK8yjC69CBFjyZe0YHGqQzVkeGf8qLTwyEa5fxVsg&oe=6633A000" class="card-img-top" style="width: 100%; height: 75%; align-items: center;">
+          </div>
+          <div class="col-3">
+            <img src="https://scontent.fmnl9-4.fna.fbcdn.net/v/t1.15752-9/434729174_226367820530215_6292594839302138826_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEtjDAKCFxIH1QHsa2fExlU2wfJdZ6FKl7bB8l1noUqXqEjJ9EyRbZ3JNpjGBSD8nUTjKgAv86tgP685lq19c7B&_nc_ohc=TXsLiPvJ4ikAX9kt4CO&_nc_oc=AdiERpaYaTdrftFLkpAxD2x6D5E4USsYjaaJNCv_9DUILltdQOOwKdbRMjjWqQlj5Yk&_nc_ht=scontent.fmnl9-4.fna&oh=03_AdQspDaT_5GzpTFCYdaFXMcFkBAPmkmQEbSufsR7QBzuvw&oe=66339258" class="card-img-top" style="width: 100%; align-items: center; height: 75%;">
+          </div>
+        </div>
+      </div>
+    ` 
+  };
+
+  const Contact = { 
+    template: `
+      <div class="container mt-5">
+        <div class="row justify-content-center">
+          <div class="col-6">
+            <h3 class="text-center p-2">Contact Information</h3>
+              <ul class="list-group justify-content-center">
+                <li class="list-group-item"><strong>Email:</strong> allandaveangco62@gmail.com</li>
+                <li class="list-group-item"><strong>Phone:</strong> 0912367764</li>
+                <li class="list-group-item"><strong>Social Media:</strong>
+                  <span><a href="https://facebook.com"><i class="bi bi-facebook p-2" style="font-size: 2em; color: blue;"></i><a></span>
+                  <span><a href="https://twitter.com"><i class="bi bi-twitter p-2" style="font-size: 2em; color: skyblue;"></i><a></span>
+                  <span><a href="https://instagram.com"><i class="bi bi-instagram p-2" style="font-size: 2em; color: purple;"></i><a></span>
+                  <span><a href="https://messenger.com"><i class="bi bi-messenger p-2" style="font-size: 2em; color: blue;"></i><a></span> 
+                </li>
+              </ul>
+          </div>
+        </div>
+      </div>
+    ` 
+  };
+
+  const router = new VueRouter({
+    routes: [
+      { path: '/', component: Home },
+      { path: '/info', component: Info },
+      { path: '/pic', component: Pic },
+      { path: '/contact', component: Contact }
+    ]
+  });
+
+  new Vue({
+    el: '#app',
+    router
+  });
+</script>
+</body>
+</html>
